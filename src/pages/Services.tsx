@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { ContactCTA } from '../components/ContactCTA';
+import { FAQ } from '../components/FAQ';
 
 /* ── Shared Page Hero ─────────────────────────────── */
 const PageHero = ({ title, subtitle }: { title: string; subtitle: string }) => (
@@ -140,6 +141,7 @@ export const ServicesPage = () => {
         ))}
       </div>
 
+      <FAQ />
       <ContactCTA />
     </div>
   );

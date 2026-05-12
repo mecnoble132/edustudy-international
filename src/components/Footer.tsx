@@ -14,8 +14,15 @@ export const Footer = () => {
   const companyLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Home', href: '#home' },
+    { name: 'FAQ', href: '#faq' },
     { name: 'Contact Us', href: '#contact' },
     { name: 'Privacy Policy', href: '#' },
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/people/Edustudyinternational/61586867560342/#" },
+    { icon: Instagram, href: "https://www.instagram.com/edustudy.international/" },
+    { icon: Linkedin, href: "https://in.linkedin.com/company/edustudy-international" },
   ];
 
   return (
@@ -39,8 +46,14 @@ export const Footer = () => {
               India's leading educational consultancy specializing in B.Tech credit transfers. We empower students to overcome academic hurdles and achieve global success.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#B8860B] hover:text-white transition-all transform hover:-translate-y-1">
+              {socialLinks.map(({ icon: Icon, href }, i) => (
+                <a 
+                  key={i} 
+                  href={href} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#B8860B] hover:text-white transition-all transform hover:-translate-y-1"
+                >
                   <Icon className="w-5 h-5" />
                 </a>
               ))}

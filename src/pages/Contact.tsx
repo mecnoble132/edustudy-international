@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, ChevronDown } from 'lucide-react';
+import { FAQ } from '../components/FAQ';
 
 /* ── Custom Branded Select ────────────────────────── */
 const CustomSelect = () => {
@@ -205,6 +206,7 @@ export const ContactPage = () => {
           </div>
         </div>
       </div>
+      <FAQ />
     </div>
   );
 };

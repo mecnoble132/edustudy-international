@@ -4,6 +4,8 @@ import { Services } from '../components/Services';
 import { Specialization } from '../components/Specialization';
 import { Roadmap } from '../components/Roadmap';
 import { About } from '../components/About';
+import { SuccessStories } from '../components/SuccessStories';
+import { FAQ } from '../components/FAQ';
 import { ContactCTA } from '../components/ContactCTA';
 
 export const Home = () => {
@@ -15,6 +17,8 @@ export const Home = () => {
       <Specialization />
       <Roadmap />
       <About />
+      <SuccessStories />
+      <FAQ />
       <ContactCTA />
     </>
   );

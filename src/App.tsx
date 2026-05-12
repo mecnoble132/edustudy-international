@@ -5,29 +5,39 @@ import { Home } from './pages/Home';
 import { AboutPage } from './pages/About';
 import { ServicesPage } from './pages/Services';
 import { ContactPage } from './pages/Contact';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
 
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentPath(window.location.hash || '#home');
-      if (!window.location.hash.includes('-')) {
-        window.scrollTo(0, 0);
-      } else {
-        // Handle scroll to subsection
+      const hash = window.location.hash || '#home';
+      setCurrentPath(hash);
+      
+      // Special handling for sub-sections or direct section IDs
+      if (hash && hash !== '#home') {
         setTimeout(() => {
-          const id = window.location.hash.substring(1);
+          const id = hash.substring(1);
           const el = document.getElementById(id);
           if (el) {
-            const y = el.getBoundingClientRect().top + window.scrollY - 100; // Offset for navbar
+            const y = el.getBoundingClientRect().top + window.scrollY - 80; // Offset for navbar
             window.scrollTo({ top: y, behavior: 'smooth' });
+          } else if (!hash.includes('-')) {
+            // If ID not found and no dash, scroll to top (it might be a primary page change)
+            window.scrollTo(0, 0);
           }
         }, 100);
+      } else {
+        window.scrollTo(0, 0);
       }
     };
 
     window.addEventListener('hashchange', handleHashChange);
+    // Initial check
+    if (window.location.hash) {
+      handleHashChange();
+    }
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
@@ -54,6 +64,7 @@ function App() {
         {renderPage()}
       </div>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
