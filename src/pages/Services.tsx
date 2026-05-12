@@ -2,6 +2,12 @@ import { useEffect } from 'react';
 import { ContactCTA } from '../components/ContactCTA';
 import { FAQ } from '../components/FAQ';
 
+// Import local images
+import studyAbroadImg from '../assets/images/study-abroad.jpg';
+import universityImg from '../assets/images/university.jpg';
+import aviationImg from '../assets/images/aviation.jpg';
+import visaImg from '../assets/images/visa.jpg';
+
 /* ── Shared Page Hero ─────────────────────────────── */
 const PageHero = ({ title, subtitle }: { title: string; subtitle: string }) => (
   <div className="relative overflow-hidden bg-[#001a35] pt-40 pb-16 px-4">
@@ -36,7 +42,7 @@ const services = [
     title: 'Credit Transfer Admissions',
     description:
       'Successfully transfer your existing academic credits to premier Indian universities. Perfect for students looking to continue their B.Tech without starting from scratch.',
-    image: 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?w=900&auto=format&fit=crop',
+    image: studyAbroadImg,
     details: [
       'UGC / AICTE Approved Universities',
       'Lateral Entry to 2nd / 3rd Year',
@@ -49,7 +55,7 @@ const services = [
     title: 'First Year Domestic Admissions',
     description:
       'Get guided admission into top-tier private and deemed universities across India. We handle the paperwork and counselling for a completely stress-free entry.',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&auto=format&fit=crop',
+    image: universityImg,
     details: [
       'Top Engineering Colleges',
       'Management Quota Guidance',
@@ -62,7 +68,7 @@ const services = [
     title: 'Abroad Admissions',
     description:
       'Navigate the complex process of studying in the UK, USA, Europe, or Australia with our expert consultants by your side at every step.',
-    image: 'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=900&auto=format&fit=crop',
+    image: aviationImg,
     details: ['University Selection', 'Visa Documentation', 'SOP Assistance', 'Pre-departure Briefing'],
   },
   {
@@ -70,7 +76,7 @@ const services = [
     title: 'Embassy Attestations',
     description:
       'Hassle-free document attestation and verification services for all international academic and professional requirements.',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&auto=format&fit=crop',
+    image: visaImg,
     details: ['MEA Attestation', 'Embassy Legalisation', 'Document Apostille', 'Courier Assistance'],
   },
 ];

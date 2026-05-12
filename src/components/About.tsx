@@ -1,4 +1,4 @@
-import logo from '../edustudylogo.png';
+import logo from '../assets/images/logo.png';
 import { MapPin } from 'lucide-react';
 
 export const About = () => {

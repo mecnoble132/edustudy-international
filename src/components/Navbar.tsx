@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '../edustudylogo.png';
+import logo from '../assets/images/logo.png';
 
 export const Navbar = ({ currentPath }: { currentPath: string }) => {
   const [mobileOpen, setMobileOpen] = useState(false);

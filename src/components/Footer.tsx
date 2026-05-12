@@ -1,4 +1,4 @@
-import logo from '../edustudylogo.png';
+import logo from '../assets/images/logo.png';
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ArrowRight } from 'lucide-react';
 
 export const Footer = () => {

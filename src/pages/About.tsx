@@ -1,4 +1,4 @@
-import logo from '../edustudylogo.png';
+import logo from '../assets/images/logo.png';
 import { ContactCTA } from '../components/ContactCTA';
 import { FAQ } from '../components/FAQ';
 

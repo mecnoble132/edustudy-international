@@ -1,7 +1,13 @@
+// Import local images
+import studyAbroadImg from '../assets/images/study-abroad.jpg';
+import universityImg from '../assets/images/university.jpg';
+import aviationImg from '../assets/images/aviation.jpg';
+import visaImg from '../assets/images/visa.jpg';
+
 export const Services = () => {
   const services = [
     {
-      image: 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?w=600&h=280&fit=crop&auto=format',
+      image: studyAbroadImg,
       title: 'Credit Transfer Admissions',
       desc: 'Seamlessly transfer your academic credits and finish your B.Tech degree faster without starting over.',
       link: '#services-credit-transfer',
@@ -17,7 +23,7 @@ export const Services = () => {
       },
     },
     {
-      image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=280&fit=crop&auto=format',
+      image: universityImg,
       title: 'First Year Domestic Admissions',
       desc: 'Expert guidance for secure admissions in top Indian institutions — IITs, NITs, and private universities.',
       link: '#services-domestic',
@@ -33,7 +39,7 @@ export const Services = () => {
       },
     },
     {
-      image: 'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=600&h=280&fit=crop&auto=format',
+      image: aviationImg,
       title: 'Abroad Admissions',
       desc: 'Unlock global opportunities with our international admission services — UK, USA, Europe & beyond.',
       link: '#services-international',
@@ -49,7 +55,7 @@ export const Services = () => {
       },
     },
     {
-      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=280&fit=crop&auto=format',
+      image: visaImg,
       title: 'Embassy Attestations',
       desc: 'Hassle-free document attestation and verification services for all international academic requirements.',
       link: '#services-attestation',

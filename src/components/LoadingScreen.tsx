@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import logo from '../edustudylogo.png';
+import logo from '../assets/images/logo.png';
 
 export const LoadingScreen = () => {
   return (
