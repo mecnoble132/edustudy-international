@@ -6,9 +6,12 @@ import { AboutPage } from './pages/About';
 import { ServicesPage } from './pages/Services';
 import { ContactPage } from './pages/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
+import { LoadingScreen } from './components/LoadingScreen';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -41,6 +44,14 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  useEffect(() => {
+    // Simulate initial load or wait for assets
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const renderPage = () => {
     const basePath = currentPath.split('-')[0];
     switch (basePath) {
@@ -59,12 +70,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar currentPath={currentPath} />
-      <div key={currentPath} className="animate-fade-in">
-        {renderPage()}
-      </div>
-      <Footer />
-      <WhatsAppButton />
+      <AnimatePresence>
+        {loading && <LoadingScreen />}
+      </AnimatePresence>
+      
+      {!loading && (
+        <>
+          <Navbar currentPath={currentPath} />
+          <div key={currentPath} className="animate-fade-in">
+            {renderPage()}
+          </div>
+          <Footer />
+          <WhatsAppButton />
+        </>
+      )}
     </div>
   );
 }
