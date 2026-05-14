@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock, ChevronDown } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ChevronDown, CheckCircle, Send } from 'lucide-react';
 import { FAQ } from '../components/FAQ';
 
 /* ── Custom Branded Select ────────────────────────── */
@@ -91,6 +91,20 @@ const PageHero = () => (
 );
 
 export const ContactPage = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHero />
@@ -115,8 +129,8 @@ export const ContactPage = () => {
             </div>
             <h3 className="text-lg font-bold text-[#002147]">Email Us</h3>
             <p className="text-xs text-slate-500 mb-2">Replies within 24 hours</p>
-            <a href="mailto:info@edustudy.co.in" className="text-sm font-black text-[#002147] hover:text-[#B8860B] transition-colors">
-              info@edustudy.co.in
+            <a href="mailto:credit@edustudyin.com" className="text-sm font-black text-[#002147] hover:text-[#B8860B] transition-colors">
+              credit@edustudyin.com
             </a>
           </div>
 
@@ -134,38 +148,88 @@ export const ContactPage = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Form - More compact */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-[#002147]">Send a Message</h2>
-              <p className="text-sm text-slate-500 mt-1">Fill out the form below and we'll get back to you shortly.</p>
-            </div>
-            
-            <form className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Full Name</label>
-                  <input type="text" className="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="John Doe" />
+          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 min-h-[500px] flex flex-col">
+            {isSubmitted ? (
+              <div className="flex-1 flex flex-col items-center justify-center text-center animate-fade-in">
+                <div className="w-20 h-20 bg-[#B8860B]/10 rounded-full flex items-center justify-center mb-6 animate-bounce">
+                  <CheckCircle className="w-10 h-10 text-[#B8860B]" />
                 </div>
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Email Address</label>
-                  <input type="email" className="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="john@example.com" />
+                <h2 className="text-3xl font-black text-[#002147] mb-3">Message Sent!</h2>
+                <p className="text-slate-500 max-w-sm mx-auto mb-8">
+                  Thank you for reaching out. One of our expert consultants will get back to you within 24 hours.
+                </p>
+                <button 
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-8 py-3 bg-[#002147] text-white rounded-lg text-sm font-black uppercase tracking-widest hover:bg-[#00306b] transition-all shadow-md active:scale-95"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-[#002147]">Send a Message</h2>
+                  <p className="text-sm text-slate-500 mt-1">Fill out the form below and we'll get back to you shortly.</p>
                 </div>
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Subject</label>
-                <CustomSelect />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Your Message</label>
-                <textarea rows={4} className="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white resize-none" placeholder="How can we help you?"></textarea>
-              </div>
-              <button 
-                onClick={(e) => { e.preventDefault(); alert('Message sent successfully! Our team will contact you soon.'); }}
-                className="w-full bg-[#002147] text-white py-3 rounded-lg text-sm font-black uppercase tracking-widest hover:bg-[#00306b] transition-all shadow-md active:scale-[0.98] mt-2"
-              >
-                Send Message
-              </button>
-            </form>
+                
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Full Name</label>
+                      <input 
+                        required
+                        type="text" 
+                        className="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white" 
+                        placeholder="John Doe" 
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Email Address</label>
+                      <input 
+                        required
+                        type="email" 
+                        className="w-full px-4 py-2.5 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white" 
+                        placeholder="john@example.com" 
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Subject</label>
+                    <CustomSelect />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Your Message</label>
+                    <textarea 
+                      required
+                      rows={4} 
+                      className="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:border-[#B8860B] focus:ring-2 focus:ring-[#B8860B]/20 outline-none transition-all bg-gray-50 focus:bg-white resize-none" 
+                      placeholder="How can we help you?"
+                    ></textarea>
+                  </div>
+                  <button 
+                    disabled={isSubmitting}
+                    type="submit"
+                    className={`w-full py-3 rounded-lg text-sm font-black uppercase tracking-widest transition-all shadow-md active:scale-[0.98] mt-2 flex items-center justify-center gap-2 ${
+                      isSubmitting 
+                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+                        : 'bg-[#002147] text-white hover:bg-[#00306b]'
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
 
           {/* Locations - Scaled down */}

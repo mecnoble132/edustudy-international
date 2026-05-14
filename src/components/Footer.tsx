@@ -104,9 +104,9 @@ export const Footer = () => {
                 <Phone className="w-5 h-5 text-[#B8860B] shrink-0" />
                 <span>+91 79758 21188</span>
               </a>
-              <a href="mailto:info@edustudy.co.in" className="flex items-start gap-3 group text-sm hover:text-white transition-colors">
+              <a href="mailto:credit@edustudyin.com" className="flex items-start gap-3 group text-sm hover:text-white transition-colors">
                 <Mail className="w-5 h-5 text-[#B8860B] shrink-0" />
-                <span>info@edustudy.co.in</span>
+                <span>credit@edustudyin.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-[#B8860B] shrink-0" />

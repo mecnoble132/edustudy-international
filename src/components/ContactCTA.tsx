@@ -17,11 +17,11 @@ export const ContactCTA = () => {
             <span className="text-sm font-semibold">+91 79758 21188</span>
           </a>
 
-          <a href="mailto:info@edustudy.co.in" className="flex items-center gap-3 group">
+          <a href="mailto:credit@edustudyin.com" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#B8860B] transition-colors">
               <Mail className="w-4 h-4" />
             </div>
-            <span className="text-sm font-semibold">info@edustudy.co.in</span>
+            <span className="text-sm font-semibold">credit@edustudyin.com</span>
           </a>
         </div>
 
