@@ -18,6 +18,11 @@ function App() {
       const hash = window.location.hash || '#home';
       setCurrentPath(hash);
       
+      // SEO: Update page title
+      const pageName = hash.split('-')[0].substring(1);
+      const titlePrefix = pageName ? pageName.charAt(0).toUpperCase() + pageName.slice(1) : 'Home';
+      document.title = `${titlePrefix} | EduStudy International | B.Tech Credit Transfer & Consultancy`;
+
       // Special handling for sub-sections or direct section IDs
       if (hash && hash !== '#home') {
         setTimeout(() => {
