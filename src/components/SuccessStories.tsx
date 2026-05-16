@@ -4,21 +4,21 @@ import { motion } from 'framer-motion';
 
 const stories = [
   {
-    name: "Rahul Sharma",
-    achievement: "B.Tech Credit Transfer to NIT",
-    story: "After facing a major setback in my second year, I thought my engineering dreams were over. EduStudy helped me navigate the credit transfer process seamlessly. Today, I'm at a top-tier institution.",
+    name: "Lana Meharin",
+    achievement: "Credit Transfer Support",
+    story: "An outstanding credit transfer experience! Edu Study International provided exceptionally reliable, professional, and friendly service throughout the entire process. Their efficiency and transparency exceeded my expectations I’m completely satisfied and truly grateful for their support.",
     rating: 5
   },
   {
-    name: "Anjali Nair",
-    achievement: "Domestic Admission - VIT",
-    story: "The guidance I received for my domestic admission was top-notch. They helped me choose the right specialization and handled all the paperwork. Truly professional service!",
+    name: "Fesni Finu",
+    achievement: "University Selection",
+    story: "I had a great experience with Edustudy international.They provide me Valuable assistance with university selection .Provides us best counsellor and best guidance through efficient handling with our application and queries .this team was incredibly supportive for selection of education career After my higher study.",
     rating: 5
   },
   {
-    name: "Mohamed Zaid",
-    achievement: "International Admission - UK",
-    story: "Moving abroad for studies seemed daunting until I met the team at EduStudy. From university selection to visa attestation, everything was handled with extreme care.",
+    name: "Vijisha K",
+    achievement: "Educational Guidance",
+    story: "I had a great experience with Edustudy international.They provide me Valuable assistance with university selection .this team was incredibly supportive for selection of education career After my higher study.",
     rating: 5
   }
 ];
